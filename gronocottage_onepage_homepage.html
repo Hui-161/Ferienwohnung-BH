@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gronocottage Bad Harzburg | Ferienwohnung im Harz</title>
+  <meta name="description" content="Unsere Ferienwohnung Gronocottage in Bad Harzburg: ruhiges Wohnen, Natur vor der Tür und direkte Anfrage bei uns. Auch über Booking.com buchbar." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Gronocottage Bad Harzburg" />
+  <meta name="theme-color" content="#53624b" />
+  <link rel="canonical" href="https://gronocottage.de/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:title" content="Gronocottage Bad Harzburg | Ferienwohnung im Harz" />
+  <meta property="og:description" content="Gronocottage Bad Harzburg: unsere ruhige Ferienwohnung im Harz mit direkter Anfrage bei uns." />
+  <meta property="og:url" content="https://gronocottage.de/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Gronocottage",
+    "description": "Unsere ruhige Ferienwohnung in Bad Harzburg im Harz mit direkter Kontaktmöglichkeit.",
+    "url": "https://gronocottage.de/",
+    "sameAs": "https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html",
+    "telephone": "+491700000000",
+    "email": "anfrage@gronocottage.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bäckerstraße 7",
+      "postalCode": "38667",
+      "addressLocality": "Bad Harzburg",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.89143,
+      "longitude": 10.54487
+    },
+    "image": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Free private parking", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Private bathroom", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Terrace and garden", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Wheelchair-accessible ground-floor unit", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Non-smoking property", "value": true}
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #e6eadc;
+      --surface: #f4f6ed;
+      --surface-2: #d7dfca;
+      --text: #1d241a;
+      --muted: #55604e;
+      --brand: #4f6541;
+      --brand-2: #6d805d;
+      --accent: #8d7048;
+      --line: rgba(29, 36, 26, .17);
+      --shadow: 0 16px 40px rgba(45, 62, 37, .14);
+      --radius: 12px;
+      --max: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #11160f;
+      --surface: #1a2017;
+      --surface-2: #22291d;
+      --text: #eef2e8;
+      --muted: #b6beab;
+      --brand: #a6b58e;
+      --brand-2: #c2caaa;
+      --accent: #d1a36c;
+      --line: rgba(238, 242, 232, .16);
+      --shadow: 0 18px 42px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 34rem),
+        radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 30rem),
+        linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 36%, var(--bg)), var(--bg) 38rem);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+    ::selection { background: rgba(111, 125, 92, .28); }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 30;
+      background: var(--surface);
+      padding: .65rem .9rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .wrap { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      text-decoration: none;
+      font-weight: 720;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+    }
+
+    .brand-mark svg { width: 18px; height: 18px; }
+    .control-btn svg,
+    .menu-btn svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      color: currentColor;
+    }
+    .lang-toggle {
+      min-width: 70px;
+      font-weight: 720;
+      letter-spacing: .02em;
+    }
+    .lang-toggle .inactive {
+      color: color-mix(in srgb, var(--muted) 62%, transparent);
+      font-weight: 620;
+    }
+    .icon svg,
+    .gallery-symbol svg {
+      width: 22px;
+      height: 22px;
+      color: var(--brand);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .2rem;
+      margin-left: auto;
+    }
+
+    .nav-links a,
+    .control-btn,
+    .lang-btn,
+    .menu-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      padding: .56rem .75rem;
+      cursor: pointer;
+      min-height: 40px;
+    }
+
+    .nav-links a:hover,
+    .control-btn:hover,
+    .lang-btn:hover,
+    .menu-btn:hover {
+      color: var(--text);
+      background: var(--surface-2);
+      border-color: var(--line);
+    }
+
+    .controls { display: flex; align-items: center; gap: .3rem; }
+    .menu-btn { display: none; }
+
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid var(--line);
+      padding: .6rem 0 1rem;
+    }
+
+    .mobile-panel a {
+      display: block;
+      padding: .9rem 0;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    main { overflow: hidden; }
+
+    .hero { padding: clamp(4rem, 8vw, 7rem) 0 3rem; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .95fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      color: var(--brand);
+      border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+      border-radius: 8px;
+      padding: .42rem .7rem;
+      font-weight: 680;
+      font-size: .92rem;
+      margin-bottom: 1.1rem;
+      background: color-mix(in srgb, var(--brand) 8%, transparent);
+    }
+
+    h1, h2, h3 { line-height: 1.08; letter-spacing: -.035em; margin: 0; }
+    h1 { font-size: clamp(2.8rem, 6.8vw, 5.6rem); max-width: 11ch; }
+    h2 { font-size: clamp(2rem, 4.5vw, 3.6rem); }
+    h3 { font-size: clamp(1.18rem, 2vw, 1.45rem); }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+      max-width: 62ch;
+      margin: 1.25rem 0 0;
+    }
+
+    .hero-actions,
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: .88rem 1.05rem;
+      border: 1px solid var(--line);
+      font-weight: 720;
+      min-height: 46px;
+      cursor: pointer;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .btn-secondary { background: var(--surface); color: var(--text); }
+    .btn-text { border-color: transparent; color: var(--muted); padding-inline: .3rem; }
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero-card {
+      border-radius: 16px;
+      padding: .7rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      min-height: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: #31402c;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      filter: saturate(.9) contrast(.96);
+    }
+
+    .hero-note {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      background: rgba(18, 23, 15, .56);
+    }
+
+    .hero-note strong { display: block; font-size: 1.22rem; line-height: 1.2; }
+    .hero-note span { color: rgba(255,255,255,.8); }
+
+    .small-card {
+      background: rgba(255,255,255,.9);
+      color: #1f241d;
+      border-radius: 10px;
+      padding: .8rem;
+      min-width: 140px;
+    }
+    .small-card b { font-size: 1.2rem; display: block; }
+    .small-card span { color: #596151; font-size: .9rem; }
+
+    section { padding: clamp(3.2rem, 6.4vw, 5.6rem) 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+    .section-head p { max-width: 56ch; color: var(--muted); margin: 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(1.15rem, 2.3vw, 1.55rem);
+      box-shadow: 0 12px 34px rgba(46, 55, 40, .07);
+    }
+    .card p { color: var(--muted); margin: .8rem 0 0; }
+    .icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+      font-size: 1.25rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(46, 55, 40, .07);
+    }
+
+    .gallery-card:first-child {
+      grid-column: span 2;
+    }
+
+    .carousel {
+      position: relative;
+      height: 420px;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+
+    .gallery-card:first-child .carousel {
+      height: 560px;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform .35s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.92) contrast(.96);
+    }
+
+    .carousel-controls {
+      position: absolute;
+      left: .85rem;
+      right: .85rem;
+      bottom: .85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .7rem;
+      z-index: 2;
+    }
+
+    .carousel-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 8px;
+      background: rgba(18, 23, 15, .62);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .carousel-count {
+      min-width: 58px;
+      text-align: center;
+      color: #fff;
+      background: rgba(18, 23, 15, .62);
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 8px;
+      padding: .46rem .65rem;
+      font-weight: 720;
+      font-size: .92rem;
+    }
+
+    .gallery-meta {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      padding: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-symbol {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+      flex: 0 0 auto;
+      font-size: 1.18rem;
+    }
+
+    .gallery-meta h3 {
+      font-size: 1.22rem;
+      letter-spacing: -.02em;
+    }
+
+    .gallery-meta p {
+      margin: .3rem 0 0;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .map-shell {
+      position: relative;
+      min-height: 540px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--surface-2);
+    }
+    #map { min-height: 540px; height: 100%; width: 100%; z-index: 0; }
+    html[data-theme="dark"] .leaflet-tile-pane { filter: brightness(.74) saturate(.85) contrast(1.08); }
+
+    .map-actions {
+      position: absolute;
+      right: .9rem;
+      bottom: .9rem;
+      z-index: 2;
+      display: flex;
+      gap: .45rem;
+    }
+
+    .map-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+      min-height: 40px;
+      padding: .52rem .75rem;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(0,0,0,.12);
+    }
+
+    .information-card {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      padding: .35rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--brand) 7%, var(--surface));
+    }
+
+    .tab-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 8px;
+      min-height: 42px;
+      padding: .62rem .85rem;
+      cursor: pointer;
+      font-weight: 720;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      color: var(--text);
+      background: var(--surface);
+      border-color: var(--line);
+      box-shadow: 0 8px 18px rgba(45, 62, 37, .08);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.is-active { display: block; }
+
+    .info-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .info-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .arrival-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+      margin-top: 1.2rem;
+    }
+
+    .arrival-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--brand) 6%, var(--surface));
+      padding: 1rem;
+    }
+
+    .arrival-item h3 {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: 1.08rem;
+      letter-spacing: -.01em;
+    }
+
+    .arrival-item svg {
+      width: 21px;
+      height: 21px;
+      color: var(--brand);
+      flex: 0 0 auto;
+    }
+
+    .arrival-item p {
+      color: var(--muted);
+      margin: .7rem 0 0;
+    }
+    .fact-list { display: grid; gap: .75rem; margin: 1.4rem 0 0; }
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .fact span { color: var(--muted); }
+    .fact strong { text-align: right; }
+
+    .amenities-body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin-top: 1.2rem;
+    }
+
+    .amenity-group {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--brand) 6%, var(--surface));
+      padding: 1rem;
+    }
+
+    .amenity-group h3 {
+      font-size: 1rem;
+      letter-spacing: -.01em;
+      margin-bottom: .55rem;
+    }
+
+    .amenity-group ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .38rem;
+      color: var(--muted);
+    }
+
+    .amenity-group li {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .amenity-group li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .68em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: .85rem;
+      height: 100%;
+    }
+
+    .contact-item {
+      display: grid;
+      gap: .35rem;
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      text-decoration: none;
+      min-height: 112px;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .contact-item strong {
+      color: var(--text);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item:hover {
+      border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
+      background: color-mix(in srgb, var(--brand) 8%, var(--surface));
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 2.5rem;
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 920px) {
+      .nav { min-height: auto; padding: .85rem 0; }
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+      .mobile-panel.is-open { display: block; }
+      .hero-grid,
+      .split,
+      .info-layout,
+      .contact { grid-template-columns: 1fr; }
+      .hero { padding-top: 3.3rem; }
+      .hero-visual, .hero-visual img { min-height: 440px; }
+      .cards,
+      .gallery-grid,
+      .amenities-body,
+      .arrival-grid { grid-template-columns: 1fr; }
+      .gallery-card:first-child { grid-column: span 1; }
+      .gallery-card:first-child .carousel,
+      .carousel { height: 420px; }
+      .section-head { display: grid; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 1.1rem, var(--max)); }
+      .brand span { max-width: 145px; overflow: hidden; text-overflow: ellipsis; }
+      .controls { gap: .2rem; }
+      .control-btn, .lang-btn, .menu-btn { padding: .5rem .6rem; }
+      .lang-toggle { min-width: 62px; }
+      h1 { font-size: clamp(2.55rem, 14vw, 3.7rem); }
+      .hero-actions, .section-actions { display: grid; }
+      .btn { width: 100%; }
+      .hero-note { grid-template-columns: 1fr; }
+      .small-card { display: none; }
+      .gallery-card:first-child .carousel,
+      .carousel { height: 340px; }
+      .gallery-meta { padding: .9rem; }
+      .map-shell, #map { min-height: 450px; }
+      .map-actions { left: .7rem; right: .7rem; bottom: .7rem; justify-content: flex-end; }
+      .map-btn { flex: 1; }
+      .fact { display: grid; }
+      .fact strong { text-align: left; }
+      .tabs { display: grid; grid-template-columns: 1fr; }
+      .tab-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+
+  <header>
+    <div class="wrap nav" aria-label="Hauptnavigation">
+      <a class="brand" href="#top" aria-label="Gronocottage Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19h16M6 18V9l6-4 6 4v9M9 18v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Gronocottage</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Abschnitte">
+        <a href="#wohnung" data-i18n="navApartment">Wohnung</a>
+        <a href="#bilder" data-i18n="navPhotos">Bilder</a>
+        <a href="#informationen" data-tab-link="location" data-i18n="navLocation">Lage</a>
+        <a href="#informationen" data-tab-link="amenities" data-i18n="navAmenities">Ausstattung</a>
+        <a href="#informationen" data-tab-link="arrival" data-i18n="navArrival">Anfahrt</a>
+        <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+      </nav>
+
+      <div class="controls" aria-label="Darstellung und Sprache">
+        <button class="control-btn" type="button" id="shareButton" aria-label="Website teilen">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12.5 15.5 16.5M15.5 7.5 8.5 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 14.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM17.5 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM17.5 19.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <button class="lang-btn lang-toggle" type="button" id="langToggle" aria-label="Sprache wechseln">DE / EN</button>
+        <button class="control-btn" type="button" id="themeToggle" aria-label="Darstellung wechseln"></button>
+        <button class="menu-btn" type="button" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="wrap mobile-panel" id="mobileMenu" aria-label="Mobile Navigation">
+      <a href="#wohnung" data-i18n="navApartment">Wohnung</a>
+      <a href="#bilder" data-i18n="navPhotos">Bilder</a>
+      <a href="#informationen" data-tab-link="location" data-i18n="navLocation">Lage</a>
+      <a href="#informationen" data-tab-link="amenities" data-i18n="navAmenities">Ausstattung</a>
+      <a href="#informationen" data-tab-link="arrival" data-i18n="navArrival">Anfahrt</a>
+      <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow" data-i18n="eyebrow">Unsere Ferienwohnung in Bad Harzburg</div>
+          <h1 data-i18n="heroTitle">Ruhig wohnen im Harz.</h1>
+          <p class="lead" data-i18n="heroLead">Gronocottage ist unsere Ferienwohnung in Bad Harzburg für erholsame Tage zwischen Kurstadt, Wanderwegen und Harzwald.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt" data-i18n="directRequest">Direkt anfragen</a>
+            <a class="btn btn-secondary" href="https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html" target="_blank" rel="noopener noreferrer nofollow" data-i18n="bookBooking">Auf Booking ansehen</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Wohnbereich Gronocottage">
+          <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80" alt="Heller Wohnbereich mit natürlichen Materialien" />
+            <div class="hero-note">
+              <div>
+                <strong data-i18n="heroCardTitle">Gronocottage Bad Harzburg</strong>
+                <span data-i18n="heroCardText">Unsere Ferienwohnung für ruhige Tage im Harz.</span>
+              </div>
+              <div class="small-card">
+                <b>Harz</b>
+                <span data-i18n="heroMapNote">Bad Harzburg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wohnung">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="apartmentTitle">Zurückhaltend, hell und naturnah.</h2>
+          <p data-i18n="apartmentText">Unsere Ferienwohnung verbindet eine klare Gestaltung mit warmen Farbtönen und einer Lage, die sich gut für kurze Auszeiten und längere Aufenthalte eignet.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 5l8 6.5V20H6v-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3 data-i18n="card1Title">Wohnen</h3>
+            <p data-i18n="card1Text">Ein ruhiger Rückzugsort für Paare, kleine Familien oder Harz-Reisende, die Erholung und kurze Wege in die Natur suchen.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 6.5 11h3L5 18h14l-4.5-7h3L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3 data-i18n="card2Title">Umgebung</h3>
+            <p data-i18n="card2Text">Bad Harzburg ist ein guter Ausgangspunkt für Spaziergänge, Wanderungen und Ausflüge in die Wälder des Harzes.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5h14v9H9l-4 3v-12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 10h7M8.5 13h4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3 data-i18n="card3Title">Buchung</h3>
+            <p data-i18n="card3Text">Sie erreichen uns direkt per E-Mail, Telefon oder Signal. Alternativ steht der Booking.com-Eintrag zur Verfügung.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bilder">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="photosTitle">Eindrücke.</h2>
+          <p data-i18n="photosText">Wohnbereich, Schlafbereich, Küche, Bad und Umgebung geben einen ersten Eindruck vom Aufenthalt.</p>
+        </div>
+
+        <div class="gallery-grid" aria-label="Bildergalerie">
+          <article class="gallery-card" data-gallery>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" alt="Wohnbereich mit Sofa und natürlichen Materialien" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1600&q=80" alt="Heller Wohnraum mit Sitzbereich" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80" alt="Modern eingerichteter Wohnbereich" loading="lazy" /></div>
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-prev aria-label="Vorheriges Bild">‹</button>
+                <span class="carousel-count" data-count>1 / 3</span>
+                <button class="carousel-btn" type="button" data-next aria-label="Nächstes Bild">›</button>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 11V9a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 11h14a2 2 0 0 1 2 2v4H3v-4a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 17v2M18 17v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <div>
+                <h3 data-i18n="galleryLivingTitle">Wohnbereich</h3>
+                <p data-i18n="galleryLivingText">Ein heller Raum zum Ankommen, Lesen und Ausruhen.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gallery>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1300&q=80" alt="Schlafzimmer mit hellem Bett" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=1300&q=80" alt="Ruhiger Schlafbereich mit natürlichem Licht" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1300&q=80" alt="Gemütliches Schlafzimmer mit neutralen Farben" loading="lazy" /></div>
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-prev aria-label="Vorheriges Bild">‹</button>
+                <span class="carousel-count" data-count>1 / 3</span>
+                <button class="carousel-btn" type="button" data-next aria-label="Nächstes Bild">›</button>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6v13M20 12v7M4 12h16v7H4v-7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9h4a2 2 0 0 1 2 2v1H4v-1a2 2 0 0 1 2-2h1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+              <div>
+                <h3 data-i18n="gallerySleepTitle">Schlafbereich</h3>
+                <p data-i18n="gallerySleepText">Ruhige Farben und eine reduzierte Einrichtung für erholsame Nächte.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gallery>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1300&q=80" alt="Helle Küche mit Holz und Arbeitsfläche" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1300&q=80" alt="Moderne Küche mit klarer Gestaltung" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=80" alt="Küchenbereich mit natürlichen Farbtönen" loading="lazy" /></div>
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-prev aria-label="Vorheriges Bild">‹</button>
+                <span class="carousel-count" data-count>1 / 3</span>
+                <button class="carousel-btn" type="button" data-next aria-label="Nächstes Bild">›</button>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 4v6M12 4v6M16 4v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 10h12v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M18 13h1.5a2.5 2.5 0 0 1 0 5H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <div>
+                <h3 data-i18n="galleryKitchenTitle">Küche</h3>
+                <p data-i18n="galleryKitchenText">Praktisch für Frühstück, Kaffee und einfache Mahlzeiten im Apartment.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gallery>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1300&q=80" alt="Modernes Bad mit Waschtisch" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1300&q=80" alt="Helles Badezimmer mit Dusche" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1300&q=80" alt="Badezimmer mit klarer Einrichtung" loading="lazy" /></div>
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-prev aria-label="Vorheriges Bild">‹</button>
+                <span class="carousel-count" data-count>1 / 3</span>
+                <button class="carousel-btn" type="button" data-next aria-label="Nächstes Bild">›</button>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 10a5 5 0 0 1 10 0H7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 5V3M8 14v.5M12 14v.5M16 14v.5M9 18v.5M15 18v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <div>
+                <h3 data-i18n="galleryBathTitle">Bad</h3>
+                <p data-i18n="galleryBathText">Klar, funktional und angenehm für den Start in den Tag.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card" data-gallery>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=80" alt="Haus in natürlicher Umgebung" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1300&q=80" alt="Wald und Berge im Abendlicht" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1300&q=80" alt="Waldweg mit hohen Bäumen" loading="lazy" /></div>
+              </div>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-prev aria-label="Vorheriges Bild">‹</button>
+                <span class="carousel-count" data-count>1 / 3</span>
+                <button class="carousel-btn" type="button" data-next aria-label="Nächstes Bild">›</button>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 6.5 11h3L5 18h14l-4.5-7h3L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <div>
+                <h3 data-i18n="galleryOutdoorTitle">Umgebung</h3>
+                <p data-i18n="galleryOutdoorText">Bad Harzburg und der Harz bieten Natur, Wege und Ausflugsziele in der Nähe.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="informationen">
+      <div class="wrap">
+        <article class="card information-card">
+          <div class="tabs" role="tablist" aria-label="Informationen">
+            <button class="tab-btn" type="button" role="tab" aria-selected="true" aria-controls="tab-location" id="tab-button-location" data-tab="location" data-i18n="tabLocation">Lage</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-amenities" id="tab-button-amenities" data-tab="amenities" data-i18n="tabAmenities">Ausstattung</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-arrival" id="tab-button-arrival" data-tab="arrival" data-i18n="tabArrival">Anfahrt</button>
+          </div>
+
+          <div class="tab-panel is-active" id="tab-location" role="tabpanel" aria-labelledby="tab-button-location" data-tab-panel="location">
+            <div class="info-layout">
+              <div class="info-text">
+                <div>
+                  <h2 data-i18n="locationTitle">Bad Harzburg.</h2>
+                  <p class="lead" data-i18n="locationText">Unsere Ferienwohnung liegt in Bad Harzburg. Von hier aus sind Spaziergänge, Wanderungen und Ausflüge in den Harz gut möglich.</p>
+                </div>
+                <div class="fact-list">
+                  <div class="fact"><span data-i18n="factAddress">Adresse</span><strong>Bäckerstraße 7, 38667 Bad Harzburg</strong></div>
+                  <div class="fact"><span data-i18n="factRegion">Region</span><strong data-i18n="factRegionValue">Harz, Niedersachsen</strong></div>
+                  <div class="fact"><span data-i18n="factBooking">Booking.com</span><strong><a href="https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html" target="_blank" rel="noopener noreferrer nofollow" data-i18n="factBookingValue">Eintrag öffnen</a></strong></div>
+                </div>
+              </div>
+
+              <div class="map-shell" aria-label="OpenStreetMap Karte Gronocottage">
+                <div id="map"></div>
+                <div class="map-actions">
+                  <button class="map-btn" type="button" id="enableMap" data-i18n="enableMap">Aktivieren</button>
+                  <button class="map-btn" type="button" id="recenterMap" data-i18n="recenterMap">Zentrieren</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-amenities" role="tabpanel" aria-labelledby="tab-button-amenities" data-tab-panel="amenities">
+            <div>
+              <h2 data-i18n="amenitiesTitle">Alles Wichtige für den Aufenthalt.</h2>
+              <p class="lead" data-i18n="amenitiesText">Die wichtigsten Ausstattungsmerkmale unserer Ferienwohnung auf einen Blick.</p>
+            </div>
+
+            <div class="amenities-body">
+              <div class="amenity-group">
+                <h3 data-i18n="amenityComfortTitle">Komfort</h3>
+                <ul>
+                  <li data-i18n="amenityParking">Kostenfreie private Parkplätze an der Unterkunft</li>
+                  <li data-i18n="amenityWifi">Kostenfreies WLAN</li>
+                  <li data-i18n="amenityNonSmoking">Nichtraucherunterkunft</li>
+                  <li data-i18n="amenityAccessible">Rollstuhlgerechte Wohneinheit im Erdgeschoss</li>
+                </ul>
+              </div>
+              <div class="amenity-group">
+                <h3 data-i18n="amenityKitchenTitle">Küche</h3>
+                <ul>
+                  <li data-i18n="amenityKitchen">Küche/Küchenzeile mit Kühlschrank, Herdplatte und Backofen</li>
+                  <li data-i18n="amenityAppliances">Toaster, Wasserkocher, Küchenutensilien und Esstisch</li>
+                  <li data-i18n="amenityWasher">Waschmaschine und Reinigungsmittel</li>
+                </ul>
+              </div>
+              <div class="amenity-group">
+                <h3 data-i18n="amenityRoomsTitle">Wohnung</h3>
+                <ul>
+                  <li data-i18n="amenityBathroom">Eigenes Badezimmer mit Dusche oder Badewanne</li>
+                  <li data-i18n="amenityBathExtras">Handtücher, Haartrockner und Pflegeprodukte</li>
+                  <li data-i18n="amenityLiving">Sofa, Sitzbereich, Essbereich und Schreibtisch</li>
+                  <li data-i18n="amenityBedroom">Bettwäsche, Schrank und Schlafsofa</li>
+                </ul>
+              </div>
+              <div class="amenity-group">
+                <h3 data-i18n="amenityOutdoorTitle">Außenbereich</h3>
+                <ul>
+                  <li data-i18n="amenityTerrace">Terrasse, Patio/Veranda und Garten</li>
+                  <li data-i18n="amenityOutdoorDining">Gartenmöbel, Essbereich im Freien und Picknickbereich</li>
+                  <li data-i18n="amenityGrill">Grillmöglichkeit und Sonnenterrasse</li>
+                </ul>
+              </div>
+              <div class="amenity-group">
+                <h3 data-i18n="amenityServiceTitle">Service & Umgebung</h3>
+                <ul>
+                  <li data-i18n="amenityCheckin">Privater Check-in/-out und Express-Check-in/-out</li>
+                  <li data-i18n="amenityActivities">Wandern, Radfahren, Skifahren und weitere Aktivitäten in der Umgebung</li>
+                  <li data-i18n="amenityLanguages">Deutsch und Englisch</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-arrival" role="tabpanel" aria-labelledby="tab-button-arrival" data-tab-panel="arrival">
+            <div>
+              <h2 data-i18n="arrivalTitle">Gut erreichbar.</h2>
+              <p class="lead" data-i18n="arrivalText">Bad Harzburg ist mit Bahn, Auto und über umliegende Flughäfen erreichbar.</p>
+            </div>
+
+            <div class="arrival-grid">
+              <article class="arrival-item">
+                <h3><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="1.8"/><path d="M7 8h10M8 18l-2 3M16 18l2 3M8 14h.01M16 14h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="arrivalTrainTitle">Bahn</span></h3>
+                <p data-i18n="arrivalTrainText">Der Bahnhof Bad Harzburg liegt in der Stadt. Von dort aus ist die Unterkunft je nach Gepäck bequem per Taxi, Bus oder zu Fuß erreichbar.</p>
+              </article>
+              <article class="arrival-item">
+                <h3><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13 7 7h10l2 6M6 17h12M7 17v2M17 17v2M6.5 13h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 15h.01M16 15h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span data-i18n="arrivalCarTitle">Auto</span></h3>
+                <p data-i18n="arrivalCarText">Private Parkplätze stehen kostenfrei an der Unterkunft zur Verfügung. Eine Reservierung ist laut Unterkunftsinformation nicht erforderlich.</p>
+              </article>
+              <article class="arrival-item">
+                <h3><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12 21 5l-6 14-4-6-8-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 13 21 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="arrivalPlaneTitle">Flugzeug</span></h3>
+                <p data-i18n="arrivalPlaneText">Für die Anreise per Flugzeug bieten sich je nach Verbindung umliegende Flughäfen an. Die Weiterfahrt erfolgt anschließend per Bahn, Mietwagen oder Shuttle.</p>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap contact">
+        <article class="card">
+          <div class="eyebrow" data-i18n="contactEyebrow">Kontakt</div>
+          <h2 data-i18n="contactTitle">Direkt anfragen.</h2>
+          <p class="lead" data-i18n="contactText">Für freie Zeiträume, Preise und Rückfragen können Sie uns direkt kontaktieren oder den Booking.com-Eintrag nutzen.</p>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html" target="_blank" rel="noopener noreferrer nofollow" data-i18n="bookBooking">Auf Booking ansehen</a>
+          </div>
+        </article>
+
+        <div class="contact-list" aria-label="Kontaktmöglichkeiten">
+          <a class="contact-item" id="emailLink" href="mailto:anfrage@gronocottage.de">
+            <span data-i18n="contactEmailLabel">E-Mail</span>
+            <strong>anfrage@gronocottage.de</strong>
+          </a>
+          <a class="contact-item" id="phoneLink" href="tel:+491700000000">
+            <span data-i18n="contactPhoneLabel">Telefon</span>
+            <strong>+49 170 0000000</strong>
+          </a>
+          <a class="contact-item" id="signalLink" href="https://signal.me/#p/+491700000000" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="contactSignalLabel">Signal</span>
+            <strong data-i18n="contactSignalText">Nachricht schreiben</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="year"></span> Gronocottage · Bad Harzburg</div>
+      <div>
+        <a href="rechtliches.html" data-i18n="legal">Impressum & Datenschutz</a>
+        <span aria-hidden="true"> · </span>
+        <a href="#top" data-i18n="toTop">Nach oben</a>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <div class="wrap card" style="margin: 1rem auto 2rem;">
+      Gronocottage ist unsere Ferienwohnung in Bad Harzburg. Direktanfragen sind per E-Mail, Telefon oder Signal möglich. Alternativ steht der Booking.com-Eintrag zur Verfügung.
+    </div>
+  </noscript>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const CONTACT_EMAIL = "anfrage@gronocottage.de";
+    const CONTACT_PHONE_DISPLAY = "+49 170 0000000";
+    const CONTACT_PHONE_LINK = "+491700000000";
+    const MAP_CENTER = [51.89143, 10.54487];
+    const MAP_ZOOM = 15;
+
+    const copy = {
+      de: {
+        metaTitle: "Gronocottage Bad Harzburg | Ferienwohnung im Harz",
+        metaDescription: "Unsere Ferienwohnung Gronocottage in Bad Harzburg: ruhiges Wohnen, Natur vor der Tür und direkte Anfrage bei uns. Auch über Booking.com buchbar.",
+        skip: "Zum Inhalt springen",
+        navApartment: "Wohnung", navPhotos: "Bilder", navLocation: "Lage", navAmenities: "Ausstattung", navArrival: "Anfahrt", navContact: "Kontakt",
+        eyebrow: "Unsere Ferienwohnung in Bad Harzburg",
+        heroTitle: "Ruhig wohnen im Harz.",
+        heroLead: "Gronocottage ist unsere Ferienwohnung in Bad Harzburg für erholsame Tage zwischen Kurstadt, Wanderwegen und Harzwald.",
+        directRequest: "Direkt anfragen", bookBooking: "Auf Booking ansehen",
+        heroCardTitle: "Gronocottage Bad Harzburg", heroCardText: "Unsere Ferienwohnung für ruhige Tage im Harz.", heroMapNote: "Bad Harzburg",
+        apartmentTitle: "Zurückhaltend, hell und naturnah.",
+        apartmentText: "Unsere Ferienwohnung verbindet eine klare Gestaltung mit warmen Farbtönen und einer Lage, die sich gut für kurze Auszeiten und längere Aufenthalte eignet.",
+        card1Title: "Wohnen", card1Text: "Ein ruhiger Rückzugsort für Paare, kleine Familien oder Harz-Reisende, die Erholung und kurze Wege in die Natur suchen.",
+        card2Title: "Umgebung", card2Text: "Bad Harzburg ist ein guter Ausgangspunkt für Spaziergänge, Wanderungen und Ausflüge in die Wälder des Harzes.",
+        card3Title: "Buchung", card3Text: "Sie erreichen uns direkt per E-Mail, Telefon oder Signal. Alternativ steht der Booking.com-Eintrag zur Verfügung.",
+        photosTitle: "Eindrücke.", photosText: "Wohnbereich, Schlafbereich, Küche, Bad und Umgebung geben einen ersten Eindruck vom Aufenthalt.",
+        galleryLivingTitle: "Wohnbereich", galleryLivingText: "Ein heller Raum zum Ankommen, Lesen und Ausruhen.",
+        gallerySleepTitle: "Schlafbereich", gallerySleepText: "Ruhige Farben und eine reduzierte Einrichtung für erholsame Nächte.",
+        galleryKitchenTitle: "Küche", galleryKitchenText: "Praktisch für Frühstück, Kaffee und einfache Mahlzeiten im Apartment.",
+        galleryBathTitle: "Bad", galleryBathText: "Klar, funktional und angenehm für den Start in den Tag.",
+        galleryOutdoorTitle: "Umgebung", galleryOutdoorText: "Bad Harzburg und der Harz bieten Natur, Wege und Ausflugsziele in der Nähe.",
+        infoTitle: "Informationen.", infoText: "Lage, Ausstattung und Anfahrt sind hier kompakt zusammengefasst.",
+        tabLocation: "Lage", tabAmenities: "Ausstattung", tabArrival: "Anfahrt",
+        locationEyebrow: "Lage", locationTitle: "Bad Harzburg.",
+        locationText: "Unsere Ferienwohnung liegt in Bad Harzburg. Von hier aus sind Spaziergänge, Wanderungen und Ausflüge in den Harz gut möglich.",
+        factAddress: "Adresse", factRegion: "Region", factRegionValue: "Harz, Niedersachsen", factBooking: "Booking.com", factBookingValue: "Eintrag öffnen",
+        amenitiesEyebrow: "Ausstattung", amenitiesTitle: "Alles Wichtige für den Aufenthalt.", amenitiesText: "Die wichtigsten Ausstattungsmerkmale unserer Ferienwohnung auf einen Blick.",
+        amenityComfortTitle: "Komfort", amenityParking: "Kostenfreie private Parkplätze an der Unterkunft", amenityWifi: "Kostenfreies WLAN", amenityNonSmoking: "Nichtraucherunterkunft", amenityAccessible: "Rollstuhlgerechte Wohneinheit im Erdgeschoss",
+        amenityKitchenTitle: "Küche", amenityKitchen: "Küche/Küchenzeile mit Kühlschrank, Herdplatte und Backofen", amenityAppliances: "Toaster, Wasserkocher, Küchenutensilien und Esstisch", amenityWasher: "Waschmaschine und Reinigungsmittel",
+        amenityRoomsTitle: "Wohnung", amenityBathroom: "Eigenes Badezimmer mit Dusche oder Badewanne", amenityBathExtras: "Handtücher, Haartrockner und Pflegeprodukte", amenityLiving: "Sofa, Sitzbereich, Essbereich und Schreibtisch", amenityBedroom: "Bettwäsche, Schrank und Schlafsofa",
+        amenityOutdoorTitle: "Außenbereich", amenityTerrace: "Terrasse, Patio/Veranda und Garten", amenityOutdoorDining: "Gartenmöbel, Essbereich im Freien und Picknickbereich", amenityGrill: "Grillmöglichkeit und Sonnenterrasse",
+        amenityServiceTitle: "Service & Umgebung", amenityCheckin: "Privater Check-in/-out und Express-Check-in/-out", amenityActivities: "Wandern, Radfahren, Skifahren und weitere Aktivitäten in der Umgebung", amenityLanguages: "Deutsch und Englisch",
+        arrivalEyebrow: "Anfahrt", arrivalTitle: "Gut erreichbar.", arrivalText: "Sie erreichen uns mit der Bahn, dem Auto oder über umliegende Flughäfen.",
+        arrivalTrainTitle: "Bahn", arrivalTrainText: "Sie erreichen Bad Harzburg bequem mit der Bahn. Vom Bahnhof aus können Sie die Weiterfahrt je nach Gepäck per Taxi, Bus oder zu Fuß planen.",
+        arrivalCarTitle: "Auto", arrivalCarText: "Sie parken kostenfrei auf privaten Parkplätzen direkt an der Unterkunft. Eine Reservierung ist laut Unterkunftsinformation nicht erforderlich.",
+        arrivalPlaneTitle: "Flugzeug", arrivalPlaneText: "Bei Anreise per Flugzeug können Sie die Weiterfahrt mit Bahn, Mietwagen oder Shuttle planen. Ein Flughafenshuttle kann gegen Gebühr angefragt werden.",
+        enableMap: "Aktivieren", recenterMap: "Zentrieren",
+        contactEyebrow: "Kontakt", contactTitle: "Direkt anfragen.", contactText: "Für freie Zeiträume, Preise und Rückfragen können Sie uns direkt kontaktieren oder den Booking.com-Eintrag nutzen.",
+        contactEmailLabel: "E-Mail", contactPhoneLabel: "Telefon", contactSignalLabel: "Signal", contactSignalText: "Nachricht schreiben",
+        shareLabel: "Website teilen", shareCopied: "Link kopiert", legal: "Impressum & Datenschutz", toTop: "Nach oben"
+      },
+      en: {
+        metaTitle: "Gronocottage Bad Harzburg | Holiday apartment in the Harz Mountains",
+        metaDescription: "Our holiday apartment Gronocottage in Bad Harzburg: calm living, nature nearby and direct enquiries with us. Also available through Booking.com.",
+        skip: "Skip to content",
+        navApartment: "Apartment", navPhotos: "Photos", navLocation: "Location", navAmenities: "Amenities", navArrival: "Arrival", navContact: "Contact",
+        eyebrow: "Our holiday apartment in Bad Harzburg",
+        heroTitle: "A quiet stay in the Harz.",
+        heroLead: "Gronocottage is our holiday apartment in Bad Harzburg for relaxing days between the spa town, walking routes and Harz forest.",
+        directRequest: "Enquire directly", bookBooking: "View on Booking",
+        heroCardTitle: "Gronocottage Bad Harzburg", heroCardText: "Our holiday apartment for quiet days in the Harz.", heroMapNote: "Bad Harzburg",
+        apartmentTitle: "Simple, bright and close to nature.",
+        apartmentText: "Our apartment combines a clear design with warm tones and a location suited to short breaks and longer stays.",
+        card1Title: "Living", card1Text: "A quiet retreat for couples, small families or Harz travellers looking for rest and easy access to nature.",
+        card2Title: "Surroundings", card2Text: "Bad Harzburg is a good starting point for walks, hikes and trips into the Harz forests.",
+        card3Title: "Booking", card3Text: "You can reach us directly by email, phone or Signal. Alternatively, the Booking.com listing is available.",
+        photosTitle: "Impressions.", photosText: "Living area, sleeping area, kitchen, bathroom and surroundings give a first impression of the stay.",
+        galleryLivingTitle: "Living area", galleryLivingText: "A bright room for arriving, reading and resting.",
+        gallerySleepTitle: "Sleeping area", gallerySleepText: "Calm colours and reduced furnishing for restful nights.",
+        galleryKitchenTitle: "Kitchen", galleryKitchenText: "Practical for breakfast, coffee and simple meals in the apartment.",
+        galleryBathTitle: "Bathroom", galleryBathText: "Clear, functional and pleasant for starting the day.",
+        galleryOutdoorTitle: "Surroundings", galleryOutdoorText: "Bad Harzburg and the Harz offer nature, trails and nearby day trips.",
+        infoTitle: "Information.", infoText: "Location, amenities and arrival information are summarised here.",
+        tabLocation: "Location", tabAmenities: "Amenities", tabArrival: "Arrival",
+        locationEyebrow: "Location", locationTitle: "Bad Harzburg.",
+        locationText: "Our holiday apartment is located in Bad Harzburg. From here, walks, hikes and trips into the Harz are easy to plan.",
+        factAddress: "Address", factRegion: "Region", factRegionValue: "Harz, Lower Saxony", factBooking: "Booking.com", factBookingValue: "Open listing",
+        amenitiesEyebrow: "Amenities", amenitiesTitle: "Everything important for your stay.", amenitiesText: "The key features of our holiday apartment at a glance.",
+        amenityComfortTitle: "Comfort", amenityParking: "Free private parking on site", amenityWifi: "Free Wi-Fi", amenityNonSmoking: "Non-smoking property", amenityAccessible: "Wheelchair-accessible ground-floor unit",
+        amenityKitchenTitle: "Kitchen", amenityKitchen: "Kitchen/kitchenette with fridge, stovetop and oven", amenityAppliances: "Toaster, kettle, kitchenware and dining table", amenityWasher: "Washing machine and cleaning products",
+        amenityRoomsTitle: "Apartment", amenityBathroom: "Private bathroom with shower or bathtub", amenityBathExtras: "Towels, hairdryer and toiletries", amenityLiving: "Sofa, seating area, dining area and desk", amenityBedroom: "Bed linen, wardrobe and sofa bed",
+        amenityOutdoorTitle: "Outdoor area", amenityTerrace: "Terrace, patio/veranda and garden", amenityOutdoorDining: "Outdoor furniture, outdoor dining area and picnic area", amenityGrill: "BBQ facilities and sun terrace",
+        amenityServiceTitle: "Service & surroundings", amenityCheckin: "Private check-in/out and express check-in/out", amenityActivities: "Hiking, cycling, skiing and further activities nearby", amenityLanguages: "German and English",
+        arrivalEyebrow: "Arrival", arrivalTitle: "Easy to reach.", arrivalText: "You can reach us by train, car or via surrounding airports.",
+        arrivalTrainTitle: "Train", arrivalTrainText: "You can reach Bad Harzburg comfortably by train. From the station, continue by taxi, bus or on foot depending on luggage.",
+        arrivalCarTitle: "Car", arrivalCarText: "Free private parking is available directly on site. According to the property information, no reservation is required.",
+        arrivalPlaneTitle: "Plane", arrivalPlaneText: "If arriving by plane, continue by train, rental car or shuttle. An airport shuttle can be requested for an additional fee.",
+        enableMap: "Enable", recenterMap: "Centre",
+        contactEyebrow: "Contact", contactTitle: "Enquire directly.", contactText: "For availability, prices and questions, contact us directly or use the Booking.com listing.",
+        contactEmailLabel: "Email", contactPhoneLabel: "Phone", contactSignalLabel: "Signal", contactSignalText: "Send a message",
+        shareLabel: "Share website", shareCopied: "Link copied", legal: "Imprint & Privacy", toTop: "Back to top"
+      }
+    };
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+    function updateThemeButton(theme) {
+      const btn = $("#themeToggle");
+      if (!btn) return;
+      const sunIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+      const moonIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A7.8 7.8 0 0 1 9.5 4a8.1 8.1 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      btn.innerHTML = theme === "dark" ? sunIcon : moonIcon;
+      btn.setAttribute("aria-label", theme === "dark" ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren");
+    }
+
+    function setLanguage(lang) {
+      const dict = copy[lang] || copy.de;
+      document.documentElement.lang = lang;
+      document.title = dict.metaTitle;
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute("content", dict.metaDescription);
+
+      $$('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      const langToggle = $("#langToggle");
+      if (langToggle) {
+        langToggle.innerHTML = lang === "de"
+          ? '<span>DE</span> <span class="inactive">/ EN</span>'
+          : '<span class="inactive">DE /</span> <span>EN</span>';
+        langToggle.setAttribute("aria-label", lang === "de" ? "Switch language to English" : "Sprache auf Deutsch wechseln");
+      }
+
+      const shareButton = $("#shareButton");
+      if (shareButton) shareButton.setAttribute("aria-label", dict.shareLabel);
+      localStorage.setItem("lang", lang);
+    }
+
+    function activateTab(tabName = "location") {
+      const tabButtons = $$('[data-tab]');
+      const panels = $$('[data-tab-panel]');
+      const target = tabButtons.some((button) => button.dataset.tab === tabName) ? tabName : "location";
+
+      tabButtons.forEach((button) => {
+        const isActive = button.dataset.tab === target;
+        button.setAttribute("aria-selected", String(isActive));
+      });
+
+      panels.forEach((panel) => {
+        panel.classList.toggle("is-active", panel.dataset.tabPanel === target);
+      });
+
+      if (target === "location" && window.gronocottageMap) {
+        setTimeout(() => window.gronocottageMap.invalidateSize(), 120);
+      }
+    }
+
+    function setupGallery() {
+      $$('[data-gallery]').forEach((gallery) => {
+        const track = gallery.querySelector(".carousel-track");
+        const slides = Array.from(gallery.querySelectorAll(".carousel-slide"));
+        const count = gallery.querySelector("[data-count]");
+        const prev = gallery.querySelector("[data-prev]");
+        const next = gallery.querySelector("[data-next]");
+        let index = 0;
+
+        const render = () => {
+          if (!track || !count) return;
+          track.style.transform = `translateX(-${index * 100}%)`;
+          count.textContent = `${index + 1} / ${slides.length}`;
+        };
+
+        if (prev) {
+          prev.addEventListener("click", () => {
+            index = (index - 1 + slides.length) % slides.length;
+            render();
+          });
+        }
+
+        if (next) {
+          next.addEventListener("click", () => {
+            index = (index + 1) % slides.length;
+            render();
+          });
+        }
+
+        render();
+      });
+    }
+
+    function setupMap() {
+      if (!window.L || !$("#map")) return;
+
+      const map = L.map("map", {
+        center: MAP_CENTER,
+        zoom: MAP_ZOOM,
+        scrollWheelZoom: false,
+        dragging: true,
+        tap: true
+      });
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      L.marker(MAP_CENTER).addTo(map).bindPopup("Gronocottage · Bad Harzburg");
+      window.gronocottageMap = map;
+
+      const enableMap = () => {
+        map.scrollWheelZoom.enable();
+        map.getContainer().focus();
+      };
+
+      const enableButton = $("#enableMap");
+      const recenterButton = $("#recenterMap");
+      if (enableButton) enableButton.addEventListener("click", enableMap);
+      if (recenterButton) recenterButton.addEventListener("click", () => map.setView(MAP_CENTER, MAP_ZOOM, { animate: true }));
+      map.getContainer().addEventListener("click", enableMap);
+      map.getContainer().addEventListener("mouseleave", () => map.scrollWheelZoom.disable());
+      window.addEventListener("resize", () => setTimeout(() => map.invalidateSize(), 150));
+    }
+
+    function setupShare() {
+      const shareButton = $("#shareButton");
+      if (!shareButton) return;
+
+      shareButton.addEventListener("click", async () => {
+        const lang = localStorage.getItem("lang") || "de";
+        const dict = copy[lang] || copy.de;
+        const url = window.location.href.split("#")[0];
+        const shareData = { title: document.title, text: dict.metaDescription, url };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+            shareButton.setAttribute("aria-label", dict.shareCopied);
+            setTimeout(() => shareButton.setAttribute("aria-label", dict.shareLabel), 1600);
+          }
+        } catch (error) {
+          return;
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = initialTheme;
+      updateThemeButton(initialTheme);
+
+      const themeToggle = $("#themeToggle");
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem("theme", next);
+          updateThemeButton(next);
+        });
+      }
+
+      const langToggle = $("#langToggle");
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const current = localStorage.getItem("lang") || "de";
+          setLanguage(current === "de" ? "en" : "de");
+        });
+      }
+      setLanguage(localStorage.getItem("lang") || "de");
+
+      const year = $("#year");
+      if (year) year.textContent = new Date().getFullYear();
+
+      const emailLink = $("#emailLink");
+      const phoneLink = $("#phoneLink");
+      const signalLink = $("#signalLink");
+      if (emailLink) {
+        emailLink.href = `mailto:${CONTACT_EMAIL}`;
+        const strong = emailLink.querySelector("strong");
+        if (strong) strong.textContent = CONTACT_EMAIL;
+      }
+      if (phoneLink) {
+        phoneLink.href = `tel:${CONTACT_PHONE_LINK}`;
+        const strong = phoneLink.querySelector("strong");
+        if (strong) strong.textContent = CONTACT_PHONE_DISPLAY;
+      }
+      if (signalLink) signalLink.href = `https://signal.me/#p/${CONTACT_PHONE_LINK}`;
+
+      const menuToggle = $("#menuToggle");
+      const mobileMenu = $("#mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        $$("#mobileMenu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      $$('[data-tab]').forEach((button) => {
+        button.addEventListener("click", () => activateTab(button.dataset.tab));
+      });
+
+      $$('[data-tab-link]').forEach((link) => {
+        link.addEventListener("click", () => {
+          setTimeout(() => activateTab(link.dataset.tabLink), 80);
+        });
+      });
+
+      setupShare();
+      setupGallery();
+      setupMap();
+      activateTab("location");
+    });
+  </script>
+</body>
+</html>

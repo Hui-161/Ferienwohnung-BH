@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferienwohnung in Bad Harzburg</title>
+  <meta name="description" content="Ferienwohnung in Bad Harzburg – ruhige Unterkunft im Harz mit direkter Kontaktmöglichkeit zur Vermieterin oder zum Vermieter." />
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7efe3;
+      --surface: #fffaf2;
+      --surface-muted: #efe1cd;
+      --text: #2b251f;
+      --muted: #74675b;
+      --accent: #d76f45;
+      --accent-strong: #8f4f32;
+      --accent-soft: #f6d8c8;
+      --green: #6f8f63;
+      --border: #e5d3bd;
+      --button-text: #ffffff;
+      --shadow: 0 18px 44px rgba(72, 48, 27, 0.11);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171512;
+        --surface: #221f1a;
+        --surface-muted: #30271f;
+        --text: #f3eadf;
+        --muted: #bdad9c;
+        --accent: #f0a46f;
+        --accent-strong: #ffc79d;
+        --accent-soft: #483225;
+        --green: #a9c287;
+        --border: #3e352c;
+        --button-text: #24170f;
+        --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      }
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f7efe3;
+      --surface: #fffaf2;
+      --surface-muted: #efe1cd;
+      --text: #2b251f;
+      --muted: #74675b;
+      --accent: #d76f45;
+      --accent-strong: #8f4f32;
+      --accent-soft: #f6d8c8;
+      --green: #6f8f63;
+      --border: #e5d3bd;
+      --button-text: #ffffff;
+      --shadow: 0 18px 44px rgba(72, 48, 27, 0.11);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #171512;
+      --surface: #221f1a;
+      --surface-muted: #30271f;
+      --text: #f3eadf;
+      --muted: #bdad9c;
+      --accent: #f0a46f;
+      --accent-strong: #ffc79d;
+      --accent-soft: #483225;
+      --green: #a9c287;
+      --border: #3e352c;
+      --button-text: #24170f;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--accent-soft) 42%, transparent), transparent 34rem),
+        radial-gradient(circle at bottom right, color-mix(in srgb, var(--green) 18%, transparent), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-size: 1rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    .brand small {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 450;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover,
+    .footer-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button,
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 17px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font: inherit;
+      font-size: 0.94rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: var(--button-text);
+    }
+
+    .button:hover,
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.secondary,
+    .theme-toggle {
+      background: transparent;
+      color: var(--accent-strong);
+    }
+
+    .button.secondary:hover,
+    .theme-toggle:hover {
+      background: var(--surface-muted);
+    }
+
+    .hero {
+      padding: 84px 0 52px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      font-weight: 680;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero-text {
+      max-width: 640px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: min(62vw, 560px);
+      min-height: 420px;
+      object-fit: cover;
+      filter: saturate(1.06) contrast(0.98);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--border);
+    }
+
+    .fact {
+      padding: 18px;
+      background: var(--surface);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 680;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.9fr 1fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 610px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .card,
+    .feature-card,
+    .contact-card,
+    .booking-card,
+    .location-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 12px 30px rgba(36, 34, 28, 0.045);
+    }
+
+    .feature-card {
+      padding: 24px;
+    }
+
+    .feature-card .label {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .feature-card p,
+    .location-card p,
+    .booking-card p,
+    .contact-card p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.3fr 0.85fr 0.85fr;
+      grid-template-rows: 250px 250px;
+      gap: 14px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      filter: saturate(1.04) contrast(0.98);
+    }
+
+    .gallery img:first-child {
+      grid-row: span 2;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .location-card,
+    .booking-card,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .location-card .kicker {
+      margin-bottom: 14px;
+    }
+
+    .map-card {
+      min-height: 410px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      box-shadow: var(--shadow);
+    }
+
+    .map-frame {
+      position: relative;
+      height: 410px;
+      background: var(--surface-muted);
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: saturate(0.95) contrast(0.96);
+      pointer-events: none;
+    }
+
+    .map-frame.is-active iframe {
+      pointer-events: auto;
+    }
+
+    .map-controls {
+      position: absolute;
+      z-index: 2;
+      right: 14px;
+      bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .map-button {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 620;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .map-button:hover {
+      background: var(--surface);
+    }
+
+    .map-note {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface);
+      font-size: 0.9rem;
+    }
+
+    .booking-contact {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .booking-card {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 72%, var(--surface)), var(--surface-muted));
+    }
+
+    .booking-card .button {
+      margin-top: 24px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 620;
+    }
+
+    .contact-link:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-link span {
+      color: var(--muted);
+      font-weight: 450;
+      font-size: 0.94rem;
+      text-align: right;
+    }
+
+    .contact-link:hover {
+      color: var(--accent-strong);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 940px) {
+      .hero-grid,
+      .section-heading,
+      .split,
+      .booking-contact {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 260px 220px 220px;
+      }
+
+      .gallery img:first-child {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-actions .button {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 0 34px;
+      }
+
+      .hero-image img {
+        min-height: 340px;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .facts,
+      .features,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-rows: none;
+      }
+
+      .gallery img,
+      .gallery img:first-child {
+        height: 250px;
+        grid-column: auto;
+      }
+
+      .contact-link {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .contact-link span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Zur Startseite">
+        Ferienwohnung
+        <small>Bad Harzburg</small>
+      </a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#wohnung">Wohnung</a>
+        <a href="#bilder">Bilder</a>
+        <a href="#lage">Lage</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Farbschema wechseln" data-theme-toggle>Dark</button>
+        <a class="button" href="#kontakt">Anfragen</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Ferienwohnung im Harz</p>
+          <h1>Ruhig wohnen in Bad Harzburg.</h1>
+          <p class="hero-text">
+            Eine gemütliche Ferienwohnung für entspannte Tage im Harz. Geeignet für kurze Auszeiten, Wanderurlaub und Aufenthalte rund um Bad Harzburg.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#kontakt">Direkt anfragen</a>
+            <a class="button secondary" href="#bilder">Bilder ansehen</a>
+          </div>
+
+          <div class="facts" aria-label="Kurzinformationen">
+            <div class="fact">
+              <strong>2 bis 4 Gäste</strong>
+              <span>ideal für Paare und kleine Familien</span>
+            </div>
+            <div class="fact">
+              <strong>Bad Harzburg</strong>
+              <span>zentraler Ausgangspunkt im Harz</span>
+            </div>
+            <div class="fact">
+              <strong>Direktkontakt</strong>
+              <span>schnell und persönlich anfragen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image" aria-label="Eindruck der Ferienwohnung">
+          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=1200&q=80" alt="Heller Wohnbereich einer Ferienwohnung" />
+        </div>
+      </div>
+    </section>
+
+    <section id="wohnung">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Die Wohnung</h2>
+          <p>
+            Ein heller Wohnbereich, praktische Ausstattung und eine ruhige Atmosphäre machen die Wohnung zu einem angenehmen Rückzugsort im Harz.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature-card">
+            <span class="label">Wohnen</span>
+            <h3>Angenehmer Rückzugsort</h3>
+            <p>Ein ruhiger Wohnbereich für Abende nach Ausflügen, Wanderungen oder Stadtbummeln.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="label">Küche</span>
+            <h3>Flexibel versorgt</h3>
+            <p>Praktisch für Frühstück, kleine Mahlzeiten und unabhängige Urlaubstage.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="label">Schlafen</span>
+            <h3>Erholsame Nächte</h3>
+            <p>Eine ruhige Atmosphäre mit allem, was für einen angenehmen Aufenthalt wichtig ist.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="label">Umgebung</span>
+            <h3>Nah am Harz</h3>
+            <p>Guter Ausgangspunkt für Natur, Kurpark, Baumwipfelpfad und Ausflüge in die Region.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bilder">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Bilder</h2>
+          <p>
+            Ein Eindruck von Wohnbereich, Küche, Schlafbereich und Bad.
+          </p>
+        </div>
+
+        <div class="gallery" aria-label="Bildergalerie der Ferienwohnung">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Wohnzimmer mit Sofa" />
+          <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=900&q=80" alt="Küche in einer Ferienwohnung" />
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80" alt="Schlafzimmer mit hellem Bett" />
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Schlafbereich mit ruhiger Einrichtung" />
+          <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=80" alt="Badezimmer einer Unterkunft" />
+        </div>
+      </div>
+    </section>
+
+    <section id="lage">
+      <div class="container split">
+        <article class="location-card">
+          <p class="kicker">Lage</p>
+          <h2>Bad Harzburg als Ausgangspunkt.</h2>
+          <p>
+            Bad Harzburg verbindet Kurstadt, Harz-Natur und kurze Wege zu Ausflugszielen. Die Wohnung eignet sich für ruhige Aufenthalte ebenso wie für aktive Tage in der Umgebung.
+          </p>
+          <p>
+            Die zentrale Lage macht viele Ziele in und um Bad Harzburg gut erreichbar.
+          </p>
+        </article>
+
+        <div class="map-card" aria-label="OpenStreetMap-Karte von Bad Harzburg">
+          <div class="map-frame" data-map-frame>
+            <iframe
+              title="OpenStreetMap Karte: Bad Harzburg"
+              loading="lazy"
+              data-map-src="https://www.openstreetmap.org/export/embed.html?bbox=10.5368%2C51.8695%2C10.5905%2C51.8950&layer=mapnik&marker=51.8822%2C10.5617"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=10.5368%2C51.8695%2C10.5905%2C51.8950&layer=mapnik&marker=51.8822%2C10.5617">
+            </iframe>
+            <div class="map-controls" aria-label="Kartensteuerung">
+              <button class="map-button" type="button" data-map-activate>Karte bedienen</button>
+              <button class="map-button" type="button" data-map-reset>Zurück zur Stadtmitte</button>
+            </div>
+          </div>
+          <div class="map-note">
+            Kartenausschnitt: Bad Harzburg. Die Karte kann per Klick aktiviert und jederzeit wieder zentriert werden.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Buchen oder direkt anfragen</h2>
+          <p>
+            Die Wohnung wird auch über Booking vermietet. Für Fragen, individuelle Absprachen oder Direktanfragen ist eine persönliche Kontaktaufnahme möglich.
+          </p>
+        </div>
+
+        <div class="booking-contact">
+          <article class="booking-card">
+            <p class="kicker">Booking</p>
+            <h3>Inserat bei Booking</h3>
+            <p>
+              Über Booking können Gäste verfügbare Zeiträume einsehen und die Unterkunft bequem buchen.
+            </p>
+            <a class="button secondary" href="https://www.booking.com" target="_blank" rel="noopener" aria-label="Verfügbarkeit auf Booking prüfen">Verfügbarkeit prüfen</a>
+          </article>
+
+          <article class="contact-card">
+            <p class="kicker">Direktkontakt</p>
+            <h3>Kontakt zur Vermietung</h3>
+            <p>
+              Für Verfügbarkeiten, Fragen zur Wohnung oder besondere Wünsche ist eine direkte Anfrage jederzeit willkommen.
+            </p>
+
+            <div class="contact-list">
+              <a class="contact-link" href="mailto:deine-email@example.com">
+                E-Mail
+                <span>deine-email@example.com</span>
+              </a>
+              <a class="contact-link" href="tel:+490000000000">
+                Telefon
+                <span>+49 000 000000</span>
+              </a>
+              <a class="contact-link" href="https://wa.me/490000000000" target="_blank" rel="noopener">
+                WhatsApp
+                <span>Nachricht senden</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Ferienwohnung Bad Harzburg</span>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.querySelector("[data-theme-toggle]");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+      root.dataset.theme = savedTheme;
+    }
+
+    function currentTheme() {
+      if (root.dataset.theme) return root.dataset.theme;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function updateToggleLabel() {
+      const theme = currentTheme();
+      toggle.textContent = theme === "dark" ? "Light" : "Dark";
+    }
+
+    toggle.addEventListener("click", () => {
+      const nextTheme = currentTheme() === "dark" ? "light" : "dark";
+      root.dataset.theme = nextTheme;
+      localStorage.setItem("theme", nextTheme);
+      updateToggleLabel();
+    });
+
+    const mapFrame = document.querySelector("[data-map-frame]");
+    const mapIframe = mapFrame?.querySelector("iframe");
+    const mapActivate = document.querySelector("[data-map-activate]");
+    const mapReset = document.querySelector("[data-map-reset]");
+
+    mapActivate?.addEventListener("click", () => {
+      mapFrame.classList.add("is-active");
+      mapActivate.textContent = "Karte aktiv";
+    });
+
+    mapReset?.addEventListener("click", () => {
+      if (!mapIframe) return;
+      mapIframe.src = mapIframe.dataset.mapSrc;
+      mapFrame.classList.remove("is-active");
+      mapActivate.textContent = "Karte bedienen";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    updateToggleLabel();
+  </script>
+</body>
+</html>

@@ -686,9 +686,15 @@
 
     .contact {
       display: grid;
-      grid-template-columns: .86fr 1.14fr;
+      grid-template-columns: .82fr 1.18fr;
       gap: 1rem;
       align-items: stretch;
+    }
+
+    .contact-intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .contact-list {
@@ -724,6 +730,24 @@
     .contact-item:hover {
       border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
       background: color-mix(in srgb, var(--brand) 8%, var(--surface));
+    }
+
+    .booking-strip {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: color-mix(in srgb, var(--brand) 5%, var(--surface));
+    }
+
+    .booking-strip p {
+      color: var(--muted);
+      margin: .45rem 0 0;
+    }
+
+    .booking-strip .btn {
+      flex: 0 0 auto;
     }
 
     footer {
@@ -770,6 +794,8 @@
       h1 { font-size: clamp(2.55rem, 14vw, 3.7rem); }
       .hero-actions, .section-actions { display: grid; }
       .btn { width: 100%; }
+      .booking-strip { display: grid; }
+      .booking-strip .btn { width: 100%; }
       .hero-note { grid-template-columns: 1fr; }
       .small-card { display: none; }
       .gallery-card:first-child .carousel,
@@ -831,7 +857,6 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow" data-i18n="eyebrow">Unsere Ferienwohnung in Bad Harzburg</div>
           <h1 data-i18n="heroTitle">Ruhig wohnen im Harz.</h1>
           <p class="lead" data-i18n="heroLead">Gronocottage ist unsere Ferienwohnung in Bad Harzburg für erholsame Tage zwischen Kurstadt, Wanderwegen und Harzwald.</p>
           <div class="hero-actions">
@@ -1117,29 +1142,35 @@
     </section>
 
     <section id="kontakt">
-      <div class="wrap contact">
-        <article class="card">
-          <div class="eyebrow" data-i18n="contactEyebrow">Kontakt</div>
-          <h2 data-i18n="contactTitle">Direkt anfragen.</h2>
-          <p class="lead" data-i18n="contactText">Für freie Zeiträume, Preise und Rückfragen können Sie uns direkt kontaktieren oder den Booking.com-Eintrag nutzen.</p>
-          <div class="section-actions">
-            <a class="btn btn-primary" href="https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html" target="_blank" rel="noopener noreferrer nofollow" data-i18n="bookBooking">Auf Booking ansehen</a>
-          </div>
-        </article>
+      <div class="wrap">
+        <div class="contact">
+          <article class="card contact-intro">
+            <h2 data-i18n="contactTitle">Direkt anfragen.</h2>
+            <p class="lead" data-i18n="contactText">Für freie Zeiträume, Preise und Rückfragen erreichen Sie uns direkt per E-Mail, Telefon oder Signal.</p>
+          </article>
 
-        <div class="contact-list" aria-label="Kontaktmöglichkeiten">
-          <a class="contact-item" id="emailLink" href="mailto:anfrage@gronocottage.de">
-            <span data-i18n="contactEmailLabel">E-Mail</span>
-            <strong>anfrage@gronocottage.de</strong>
-          </a>
-          <a class="contact-item" id="phoneLink" href="tel:+491700000000">
-            <span data-i18n="contactPhoneLabel">Telefon</span>
-            <strong>+49 170 0000000</strong>
-          </a>
-          <a class="contact-item" id="signalLink" href="https://signal.me/#p/+491700000000" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="contactSignalLabel">Signal</span>
-            <strong data-i18n="contactSignalText">Nachricht schreiben</strong>
-          </a>
+          <div class="contact-list" aria-label="Kontaktmöglichkeiten">
+            <a class="contact-item" id="emailLink" href="mailto:anfrage@gronocottage.de">
+              <span data-i18n="contactEmailLabel">E-Mail</span>
+              <strong>anfrage@gronocottage.de</strong>
+            </a>
+            <a class="contact-item" id="phoneLink" href="tel:+491700000000">
+              <span data-i18n="contactPhoneLabel">Telefon</span>
+              <strong>+49 170 0000000</strong>
+            </a>
+            <a class="contact-item" id="signalLink" href="https://signal.me/#p/+491700000000" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="contactSignalLabel">Signal</span>
+              <strong data-i18n="contactSignalText">Nachricht schreiben</strong>
+            </a>
+          </div>
+        </div>
+
+        <div class="card booking-strip">
+          <div>
+            <h3 data-i18n="bookingStripTitle">Alternativ über Booking.com</h3>
+            <p data-i18n="bookingStripText">Wenn Sie lieber über ein Buchungsportal buchen möchten, finden Sie dort ebenfalls unseren Eintrag.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://www.booking.com/hotel/de/gronocottage-bad-harzburg.de.html" target="_blank" rel="noopener noreferrer nofollow" data-i18n="bookBooking">Auf Booking ansehen</a>
         </div>
       </div>
     </section>
@@ -1208,8 +1239,10 @@
         arrivalCarTitle: "Auto", arrivalCarText: "Sie parken kostenfrei auf privaten Parkplätzen direkt an der Unterkunft. Eine Reservierung ist laut Unterkunftsinformation nicht erforderlich.",
         arrivalPlaneTitle: "Flugzeug", arrivalPlaneText: "Bei Anreise per Flugzeug können Sie die Weiterfahrt mit Bahn, Mietwagen oder Shuttle planen. Ein Flughafenshuttle kann gegen Gebühr angefragt werden.",
         enableMap: "Aktivieren", recenterMap: "Zentrieren",
-        contactEyebrow: "Kontakt", contactTitle: "Direkt anfragen.", contactText: "Für freie Zeiträume, Preise und Rückfragen können Sie uns direkt kontaktieren oder den Booking.com-Eintrag nutzen.",
+        contactEyebrow: "Kontakt", contactTitle: "Direkt anfragen.", contactText: "Für freie Zeiträume, Preise und Rückfragen erreichen Sie uns direkt per E-Mail, Telefon oder Signal.",
         contactEmailLabel: "E-Mail", contactPhoneLabel: "Telefon", contactSignalLabel: "Signal", contactSignalText: "Nachricht schreiben",
+        bookingStripTitle: "Alternativ über Booking.com",
+        bookingStripText: "Wenn Sie lieber über ein Buchungsportal buchen möchten, finden Sie dort ebenfalls unseren Eintrag.",
         shareLabel: "Website teilen", shareCopied: "Link kopiert", legal: "Impressum & Datenschutz", toTop: "Nach oben"
       },
       en: {
@@ -1249,8 +1282,10 @@
         arrivalCarTitle: "Car", arrivalCarText: "Free private parking is available directly on site. According to the property information, no reservation is required.",
         arrivalPlaneTitle: "Plane", arrivalPlaneText: "If arriving by plane, continue by train, rental car or shuttle. An airport shuttle can be requested for an additional fee.",
         enableMap: "Enable", recenterMap: "Centre",
-        contactEyebrow: "Contact", contactTitle: "Enquire directly.", contactText: "For availability, prices and questions, contact us directly or use the Booking.com listing.",
+        contactEyebrow: "Contact", contactTitle: "Enquire directly.", contactText: "For availability, prices and questions, reach us directly by email, phone or Signal.",
         contactEmailLabel: "Email", contactPhoneLabel: "Phone", contactSignalLabel: "Signal", contactSignalText: "Send a message",
+        bookingStripTitle: "Alternatively via Booking.com",
+        bookingStripText: "If you prefer to book through a portal, you can also find our listing there",
         shareLabel: "Share website", shareCopied: "Link copied", legal: "Imprint & Privacy", toTop: "Back to top"
       }
     };
